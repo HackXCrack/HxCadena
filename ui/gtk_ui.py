@@ -50,11 +50,11 @@ class ui(gtk.Window):
         ToolBar.append_element(gtk.TOOLBAR_CHILD_BUTTON, None,
                                "Recargar","Vuelve a descargar la lista",None,
                                gtk.image_new_from_stock(gtk.STOCK_REFRESH,1),
-                               self.check_proxys_alive,None)
+                               self.get_proxy_list,None)
         ToolBar.append_element(gtk.TOOLBAR_CHILD_BUTTON, None,
                                "Guardar","Guarda la lista",None,
                                gtk.image_new_from_stock(gtk.STOCK_SAVE,1),
-                               self.check_proxys_alive,None)
+                               self.save_proxy_list,None)
         ToolBar.append_element(gtk.TOOLBAR_CHILD_BUTTON, None,
                                "Salir","Sale de la aplicacion",
                                None,gtk.image_new_from_stock(gtk.STOCK_QUIT,1),
@@ -97,6 +97,9 @@ class ui(gtk.Window):
         pass
 
     def check_proxys_alive(self,widget):
+        pass
+
+    def save_proxy_list(self, widget):
         pass
 
     def run(self):
