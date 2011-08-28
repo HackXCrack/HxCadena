@@ -10,6 +10,10 @@ ui_dir      = "ui"
 
 main_dir   = os.getcwd()
 
+uis = {'text':'text_interface',
+      'gtk':'gtk_ui',
+       'ncurses': 'ncurses'
+     }
 # Función principal
 def main():
     # Añadimos los módulos de 'core', 'plugins' y 'ui' a los importables
@@ -22,8 +26,9 @@ def main():
     plugin_manager = plugins()
 
     # Iniciamos la ui
-    import text_interface
-    text_interface.init_ui(sys.argv, plugin_manager)
+    ui = __import__(uis['text'])
+    ui.ui(sys.argv, plugin_manager).run()
+    #text_interface.init_ui(sys.argv, plugin_manager)
 
 # Si se ejecuta directamente
 if __name__=="__main__":

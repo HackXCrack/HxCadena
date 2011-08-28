@@ -1,6 +1,24 @@
 #coding: utf-8
 # Interfaz de ejemplo
 
+class ui(object):
+    def __init__(self, argv, plugin_manager):
+        self.argv = argv
+        self.plugins = plugin_manager
+
+    def run(self):
+        seleccion = ''
+        proxies = self.plugins.get_list()
+        while seleccion != 'q':
+            muestra_menu() # Se muestra el menú
+            seleccion = raw_input(">> ") # Se lee lo que introduce el usuario
+            seleccion = seleccion.lower() #
+
+            if seleccion == 'a':
+                menu_guardar(plugins, proxies)
+            else:
+                print "" # Nueva línea
+
 # Opciones del menú
 def muestra_menu():
     print "HxCadena"
@@ -38,16 +56,3 @@ def menu_guardar(plugin, proxies):
 
      # Por fin, exportamos el archivo
      plugin.export(formato, nombre, proxies)
-
-def init_ui(argv, plugins):
-    seleccion = ''
-    proxies = plugins.get_list()
-    while seleccion != 'q':
-        muestra_menu() # Se muestra el menú
-        seleccion = raw_input(">> ") # Se lee lo que introduce el usuario
-        seleccion = seleccion.lower() #
-
-        if seleccion == 'a':
-            menu_guardar(plugins, proxies)
-        else:
-            print "" # Nueva línea
