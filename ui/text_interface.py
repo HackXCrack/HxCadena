@@ -10,12 +10,15 @@ class ui(object):
         seleccion = ''
         proxies = self.plugins.get_list()
         while seleccion != 'q':
+            print len(proxies), "proxies"
             muestra_menu() # Se muestra el menú
             seleccion = raw_input(">> ") # Se lee lo que introduce el usuario
             seleccion = seleccion.lower() #
 
             if seleccion == 'a':
-                menu_guardar(plugins, proxies)
+                menu_guardar(self.plugins, proxies)
+            elif seleccion == 'b':
+                proxies = self.plugins.filter_list(proxies)
             else:
                 print "" # Nueva línea
 
@@ -24,6 +27,7 @@ def muestra_menu():
     print "HxCadena"
     print "--------"
     print "a) Guardar la lista de proxies"
+    print "b) Filtrar"
     print "q) Salir"
 
 # Menú 'principal'

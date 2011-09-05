@@ -1,6 +1,7 @@
 #coding: utf-8
 # Gestor de plugins
 
+import proxy_test
 import sys
 import os
 
@@ -68,6 +69,9 @@ class PluginManager:
         # Se abre el archivo
         archivo_salida = open(nombre_archivo, 'w')
         modulo.export_list(archivo_salida, lista)
+        
+    def filter_list(self, lista):
+        return proxy_test.filtrar(lista)
 
 # Devuelve el gestor de plugins
 def plugins():
