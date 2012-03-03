@@ -5,13 +5,13 @@ import sys
 from plugin_base import BasePlugin
 
 class leerHxC(BasePlugin): # Creo clase que hereda lo importado
-    plugin_type = BasePlugin.EXPORT_PLUGIN
+    plugin_type = BasePlugin.LIST.PLUGIN
     plugin_author = "overload" 
-    plugin_version = 1 
+    plugin_version = 2 
     directorio_retorno = os.getcwd()
     #Defino atributos
 	
-    def __init__(self): #Funcion __init__
+    def get_list(self): #Funcion get_list
         self.ruta = raw_input('Directorio donde se esta el archivo-> ')# Direccion de la ruta
         self.ir_ruta = os.chdir(self.ruta)# Voy a la ruta definida previamente
         self.archivo = raw_input('Archivo-> ')# Introducen el nombre del archivo
@@ -25,6 +25,6 @@ def get_plugin():
 		
 if __name__ == '__main__':
     mostrar2 = get_plugin() # Le asigno una variable a la funcion
-    mostrar2.__init__() # Llamo al metodo __init__
+    mostrar2.get_list() # Llamo al metodo get_list
 
 	
